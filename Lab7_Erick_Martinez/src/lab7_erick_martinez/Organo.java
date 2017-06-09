@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author usuario
  */
 public class Organo {
-    public Color color;
+    public String color;
     public ArrayList<String> caracteristicas = new ArrayList();
     public int nivel_potenciado;
     public int nivel_prueba;
@@ -21,17 +21,17 @@ public class Organo {
     public Organo() {
     }
     
-    public Organo(Color color, int nivel_potenciado, int nivel_prueba) {
+    public Organo(String color, int nivel_potenciado, int nivel_prueba) {
         this.color = color;
         this.nivel_potenciado = nivel_potenciado;
         this.nivel_prueba = nivel_prueba;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

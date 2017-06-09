@@ -14,7 +14,7 @@ import java.awt.Color;
 public class Cerebro extends Organo{
     public int nivel_efectividad;
 
-    public Cerebro(int nivel_efectividad, Color color, int nivel_potenciado, int nivel_prueba) {
+    public Cerebro(int nivel_efectividad, String color, int nivel_potenciado, int nivel_prueba) {
         super(color, nivel_potenciado, nivel_prueba);
         this.nivel_efectividad = 600000;
     }

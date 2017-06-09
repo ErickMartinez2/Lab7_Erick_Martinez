@@ -14,7 +14,7 @@ import java.awt.Color;
 public class Pancreas extends Organo{
     public int nivel_efectividad;
 
-    public Pancreas(int nivel_efectividad, Color color, int nivel_potenciado, int nivel_prueba) {
+    public Pancreas(int nivel_efectividad, String color, int nivel_potenciado, int nivel_prueba) {
         super(color, nivel_potenciado, nivel_prueba);
         this.nivel_efectividad = 984236;
     }

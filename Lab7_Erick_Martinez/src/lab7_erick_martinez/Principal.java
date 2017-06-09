@@ -20,6 +20,7 @@ public class Principal extends javax.swing.JFrame {
 
     Administrar archivo = new Administrar("./ArchivoLab7.xxx");
     ArrayList<Organo> organos = new ArrayList();
+    ArrayList<Paciente> pacientes = new ArrayList();
 
     /**
      * Creates new form Principal
@@ -1067,6 +1068,7 @@ public class Principal extends javax.swing.JFrame {
             String causa = ta_causa.getText();
             m.addElement(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
             archivo.setObject(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
+            pacientes.add(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
             String resp = JOptionPane.showInputDialog(this, "Desea agregar enfermedades? [s/n]");
             if (resp.equalsIgnoreCase("s")) {
                 String resp2;
@@ -1083,10 +1085,16 @@ public class Principal extends javax.swing.JFrame {
                     resp4 = JOptionPane.showInputDialog(this, "Desea agregar otra alergia? [s/n]");
                 } while (resp4.equalsIgnoreCase("s"));
             }
-            if (jl_organos1.getSelectedIndex() >= 0) {
-                ((Paciente) m.get(m.size() - 1)).getOrganos().add((organos.get(jl_organos1.getSelectedIndex())));
+            String resp5 = JOptionPane.showInputDialog(this, "Desea agregar organo? [s/n]");
+            if (resp5.equalsIgnoreCase("s")) {
+                String resp6;
+                do {
+                    ((Paciente) m.get(m.size() - 1)).getOrganos().add((organos.get(Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la posicion del organo:")))));
+                    resp6 = JOptionPane.showInputDialog(this, "Desea agregar otro organo? [s/n]");
+                } while (resp6.equalsIgnoreCase("s"));
             }
             jl_pacientes.setModel(m);
+            jl_pacientes1.setModel(m);
             archivo.escribirArchivo();
             tf_nombre.setText("");
             tf_edad.setText("");
@@ -1125,8 +1133,11 @@ public class Principal extends javax.swing.JFrame {
                 String causa = ta_causa.getText();
                 m.addElement(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
                 archivo.setObject(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
+                pacientes.add(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
                 m.remove(jl_pacientes.getSelectedIndex());
+                pacientes.remove(jl_pacientes.getSelectedIndex());
                 jl_pacientes.setModel(m);
+                jl_pacientes1.setModel(m);
                 archivo.escribirArchivo();
                 tf_nombre.setText("");
                 tf_edad.setText("");
@@ -1149,8 +1160,10 @@ public class Principal extends javax.swing.JFrame {
         if (jl_pacientes.getSelectedIndex() >= 0) {
             archivo.cargarArchivo();
             m.remove(jl_pacientes.getSelectedIndex());
+            pacientes.remove(jl_pacientes.getSelectedIndex());
             archivo.setObject(m);
             jl_pacientes.setModel(m);
+            jl_pacientes1.setModel(m);
             archivo.escribirArchivo();
         } else {
             JOptionPane.showMessageDialog(this, "No se ha seleccionado ningun paciente!");
@@ -1204,6 +1217,16 @@ public class Principal extends javax.swing.JFrame {
         if (dia_d.isSelected()) {
             dias.add("Domingo");
         }
+        DefaultMutableTreeNode Pacientes = new DefaultMutableTreeNode("Pacientes");
+        String resp3 = JOptionPane.showInputDialog(this, "Desea agregar paciente? [s/n]");
+        if (resp3.equalsIgnoreCase("s")) {
+            String resp4;
+            do {
+                DefaultMutableTreeNode pac = new DefaultMutableTreeNode(((Persona) pacientes.get(Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la posicion del paciente:")))).getNombre());
+                Pacientes.add(pac);
+                resp4 = JOptionPane.showInputDialog(this, "Desea agregar otro paciente? [s/n]");
+            } while (resp4.equalsIgnoreCase("s"));
+        }
         DefaultMutableTreeNode dia = new DefaultMutableTreeNode(dias);
         DefaultMutableTreeNode especialidad = new DefaultMutableTreeNode(especialidades);
         DefaultMutableTreeNode años = new DefaultMutableTreeNode(tf_años.getText());
@@ -1217,6 +1240,7 @@ public class Principal extends javax.swing.JFrame {
         nombre.add(horario);
         nombre.add(dia);
         nombre.add(especialidad);
+        nombre.add(Pacientes);
         raiz.add(nombre);
         m.reload();
     }//GEN-LAST:event_jButton5MouseClicked

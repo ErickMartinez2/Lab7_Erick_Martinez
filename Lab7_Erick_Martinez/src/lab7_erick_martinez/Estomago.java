@@ -15,7 +15,7 @@ public class Estomago extends Organo {
 
     public int nivel_efectividad;
 
-    public Estomago(int nivel_efectividad, String color, int nivel_potenciado, int nivel_prueba) {
+    public Estomago(String color, int nivel_potenciado, int nivel_prueba) {
         super(color, nivel_potenciado, nivel_prueba);
         this.nivel_efectividad = 52580;
     }
@@ -28,5 +28,8 @@ public class Estomago extends Organo {
         this.nivel_efectividad = nivel_efectividad;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Estomago ; " + color;
+    }
 }

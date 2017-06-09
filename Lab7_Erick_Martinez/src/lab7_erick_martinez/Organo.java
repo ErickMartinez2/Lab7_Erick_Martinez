@@ -5,14 +5,14 @@
  */
 package lab7_erick_martinez;
 
-import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author usuario
  */
-public class Organo {
+public class Organo implements Serializable {
     public String color;
     public ArrayList<String> caracteristicas = new ArrayList();
     public int nivel_potenciado;

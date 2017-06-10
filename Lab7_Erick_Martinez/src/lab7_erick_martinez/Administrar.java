@@ -42,7 +42,7 @@ public class Administrar {
     }
     
     public void setObject(Object o){
-        lista_todo.add(o);
+        this.lista_todo.add(o);
     }
     
     public void cargarArchivo(){
@@ -56,8 +56,10 @@ public class Administrar {
                     while((o = objeto.readObject()) != null){
                         lista_todo.add(o);
                     }
-                } catch (EOFException e) {
+                } catch (Exception e) {
                 }
+                objeto.close();
+                entrada.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

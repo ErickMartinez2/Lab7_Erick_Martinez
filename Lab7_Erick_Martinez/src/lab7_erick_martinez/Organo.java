@@ -58,5 +58,10 @@ public class Organo implements Serializable {
     public void setNivel_prueba(int nivel_prueba) {
         this.nivel_prueba = nivel_prueba;
     }
+
+    @Override
+    public String toString() {
+        return "Organo{" + "color=" + color + ", caracteristicas=" + caracteristicas + ", nivel_potenciado=" + nivel_potenciado + ", nivel_prueba=" + nivel_prueba + '}';
+    }
     
 }

@@ -22,6 +22,12 @@ public class Doctor extends Persona {
         super();
     }
 
+    public Doctor(int años, String horario, String nombre, int edad, int id, double altura, double peso, String sexo) {
+        super(nombre, edad, id, altura, peso, sexo);
+        this.años = años;
+        this.horario = horario;
+    }
+
     public ArrayList<String> getEspecialidades() {
         return especialidades;
     }
@@ -60,6 +66,11 @@ public class Doctor extends Persona {
 
     public void setDias(ArrayList<String> dias) {
         this.dias = dias;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor " + nombre + " {" + "especialidades=" + especialidades + ", pacientes=" + pacientes + ", años=" + años + ", horario=" + horario + ", dias=" + dias + '}';
     }
     
 }

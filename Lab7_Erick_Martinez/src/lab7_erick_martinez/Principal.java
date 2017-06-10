@@ -21,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
     Administrar archivo = new Administrar("./ArchivoLab7.xxx");
     ArrayList<Organo> organos = new ArrayList();
     ArrayList<Paciente> pacientes = new ArrayList();
+    ArrayList<Doctor> doctores = new ArrayList();
 
     /**
      * Creates new form Principal
@@ -40,6 +41,29 @@ public class Principal extends javax.swing.JFrame {
 
         jd_agregar = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tf_color = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        tf_nivelpotenciado = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        tf_nivelprueba = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_organos = new javax.swing.JList<>();
+        organo_e = new javax.swing.JRadioButton();
+        organo_h = new javax.swing.JRadioButton();
+        organo_ce = new javax.swing.JRadioButton();
+        organo_pa = new javax.swing.JRadioButton();
+        organo_co = new javax.swing.JRadioButton();
+        organo_pu = new javax.swing.JRadioButton();
+        organo_ri = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -108,35 +132,206 @@ public class Principal extends javax.swing.JFrame {
         dia_d = new javax.swing.JRadioButton();
         dia_ju = new javax.swing.JRadioButton();
         jLabel30 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        tf_color = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        tf_nivelpotenciado = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        tf_nivelprueba = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jl_organos = new javax.swing.JList<>();
-        organo_e = new javax.swing.JRadioButton();
-        organo_h = new javax.swing.JRadioButton();
-        organo_ce = new javax.swing.JRadioButton();
-        organo_pa = new javax.swing.JRadioButton();
-        organo_co = new javax.swing.JRadioButton();
-        organo_pu = new javax.swing.JRadioButton();
-        organo_ri = new javax.swing.JRadioButton();
         grupo_sexo = new javax.swing.ButtonGroup();
         grupo_organo = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         jd_agregar.setPreferredSize(new java.awt.Dimension(845, 530));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel23.setText("Organos");
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel26.setText("Color");
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel27.setText("Nivel de Potenciado");
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel28.setText("Nivel de Prueba");
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel29.setText("Tipo de Organo");
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel34.setText("Lista de Organos");
+
+        jButton8.setText("Agregar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        jButton9.setText("Modificar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        jButton10.setText("Eliminar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jl_organos.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(jl_organos);
+
+        grupo_organo.add(organo_e);
+        organo_e.setText("Estomago");
+
+        grupo_organo.add(organo_h);
+        organo_h.setText("Higado");
+
+        grupo_organo.add(organo_ce);
+        organo_ce.setText("Cerebreo");
+
+        grupo_organo.add(organo_pa);
+        organo_pa.setText("Pancreas");
+
+        grupo_organo.add(organo_co);
+        organo_co.setText("Corazon");
+
+        grupo_organo.add(organo_pu);
+        organo_pu.setText("Pulmones");
+
+        grupo_organo.add(organo_ri);
+        organo_ri.setText("Riñones");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(354, 354, 354)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_nivelpotenciado, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(18, 18, 18)
+                                .addComponent(tf_nivelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(organo_h)
+                                    .addComponent(organo_e)
+                                    .addComponent(organo_ce)
+                                    .addComponent(organo_pa)
+                                    .addComponent(organo_co)
+                                    .addComponent(organo_pu)
+                                    .addComponent(organo_ri))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel34)
+                        .addContainerGap())
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jButton8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton10)
+                                .addGap(321, 321, 321))))))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(tf_nivelpotenciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_nivelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34)))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton9)
+                            .addComponent(jButton10)
+                            .addComponent(jButton8)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(organo_e))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(organo_h)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(organo_ce)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(organo_pa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(organo_co)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(organo_pu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(organo_ri)))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Organos", jPanel3);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Pacientes");
@@ -347,7 +542,7 @@ public class Principal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel9)))
                                 .addGap(32, 32, 32)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -363,7 +558,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(49, 49, 49)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pacientes", jPanel1);
@@ -638,199 +833,6 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Doctores", jPanel2);
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel23.setText("Organos");
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel26.setText("Color");
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel27.setText("Nivel de Potenciado");
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel28.setText("Nivel de Prueba");
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel29.setText("Tipo de Organo");
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel34.setText("Lista de Organos");
-
-        jButton8.setText("Agregar");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
-
-        jButton9.setText("Modificar");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-
-        jButton10.setText("Eliminar");
-        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton10MouseClicked(evt);
-            }
-        });
-
-        jl_organos.setModel(new DefaultListModel());
-        jScrollPane7.setViewportView(jl_organos);
-
-        grupo_organo.add(organo_e);
-        organo_e.setText("Estomago");
-
-        grupo_organo.add(organo_h);
-        organo_h.setText("Higado");
-
-        grupo_organo.add(organo_ce);
-        organo_ce.setText("Cerebreo");
-
-        grupo_organo.add(organo_pa);
-        organo_pa.setText("Pancreas");
-
-        grupo_organo.add(organo_co);
-        organo_co.setText("Corazon");
-
-        grupo_organo.add(organo_pu);
-        organo_pu.setText("Pulmones");
-
-        grupo_organo.add(organo_ri);
-        organo_ri.setText("Riñones");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(354, 354, 354)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_nivelpotenciado, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel28)
-                                .addGap(18, 18, 18)
-                                .addComponent(tf_nivelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(organo_h)
-                                    .addComponent(organo_e)
-                                    .addComponent(organo_ce)
-                                    .addComponent(organo_pa)
-                                    .addComponent(organo_co)
-                                    .addComponent(organo_pu)
-                                    .addComponent(organo_ri))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel34)
-                        .addContainerGap())
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton10)
-                                .addGap(321, 321, 321))))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
-                .addGap(25, 25, 25)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(tf_nivelpotenciado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_nivelprueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel34)))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton9)
-                            .addComponent(jButton10)
-                            .addComponent(jButton8)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel29)
-                            .addComponent(organo_e))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(organo_h)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(organo_ce)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(organo_pa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(organo_co)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(organo_pu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(organo_ri)))
-                .addContainerGap(165, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Organos", jPanel3);
-
         javax.swing.GroupLayout jd_agregarLayout = new javax.swing.GroupLayout(jd_agregar.getContentPane());
         jd_agregar.getContentPane().setLayout(jd_agregarLayout);
         jd_agregarLayout.setHorizontalGroup(
@@ -842,7 +844,7 @@ public class Principal extends javax.swing.JFrame {
         jd_agregarLayout.setVerticalGroup(
             jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_agregarLayout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -860,6 +862,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton11.setText("Reportes");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -871,7 +881,9 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(264, 264, 264)
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -881,7 +893,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(77, 77, 77)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
@@ -1014,8 +1028,8 @@ public class Principal extends javax.swing.JFrame {
                         }
                     }
                 }
-                m.remove(jl_organos.getSelectedIndex());
                 organos.remove(jl_organos.getSelectedIndex());
+                m.remove(jl_organos.getSelectedIndex());
                 jl_organos.setModel(m);
                 jl_organos1.setModel(m);
                 archivo.escribirArchivo();
@@ -1034,8 +1048,8 @@ public class Principal extends javax.swing.JFrame {
         DefaultListModel m = (DefaultListModel) jl_organos.getModel();
         if (jl_organos.getSelectedIndex() >= 0) {
             archivo.cargarArchivo();
-            m.remove(jl_organos.getSelectedIndex());
             organos.remove(jl_organos.getSelectedIndex());
+            m.remove(jl_organos.getSelectedIndex());
             archivo.setObject(m);
             jl_organos.setModel(m);
             jl_organos1.setModel(m);
@@ -1134,8 +1148,8 @@ public class Principal extends javax.swing.JFrame {
                 m.addElement(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
                 archivo.setObject(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
                 pacientes.add(new Paciente(Fecha1, Fecha2, sangre, causa, nombre, edad, id, altura, peso, sexo));
-                m.remove(jl_pacientes.getSelectedIndex());
                 pacientes.remove(jl_pacientes.getSelectedIndex());
+                m.remove(jl_pacientes.getSelectedIndex());
                 jl_pacientes.setModel(m);
                 jl_pacientes1.setModel(m);
                 archivo.escribirArchivo();
@@ -1159,8 +1173,8 @@ public class Principal extends javax.swing.JFrame {
         DefaultListModel m = (DefaultListModel) jl_pacientes.getModel();
         if (jl_pacientes.getSelectedIndex() >= 0) {
             archivo.cargarArchivo();
-            m.remove(jl_pacientes.getSelectedIndex());
             pacientes.remove(jl_pacientes.getSelectedIndex());
+            m.remove(jl_pacientes.getSelectedIndex());
             archivo.setObject(m);
             jl_pacientes.setModel(m);
             jl_pacientes1.setModel(m);
@@ -1172,78 +1186,161 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         DefaultTreeModel m = (DefaultTreeModel) arbol_doctores.getModel();
-        ArrayList<String> dias = new ArrayList();
-        ArrayList<String> especialidades = new ArrayList();
-        String resp = JOptionPane.showInputDialog(this, "Desea agregar especialidades? [s/n]");
-        if (resp.equalsIgnoreCase("s")) {
-            String resp2;
-            do {
-                especialidades.add(JOptionPane.showInputDialog(this, "Ingrese especialidad:"));
-                resp2 = JOptionPane.showInputDialog(this, "Desea agregar otra especialidad? [s/n]");
-            } while (resp2.equalsIgnoreCase("s"));
-        }
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
-        DefaultMutableTreeNode nombre = new DefaultMutableTreeNode("Doctor " + tf_nombre1.getText());
-        DefaultMutableTreeNode edad = new DefaultMutableTreeNode(tf_edad1.getText());
-        DefaultMutableTreeNode id = new DefaultMutableTreeNode(tf_id1.getText());
-        DefaultMutableTreeNode altura = new DefaultMutableTreeNode(tf_altura1.getText());
-        DefaultMutableTreeNode peso = new DefaultMutableTreeNode(tf_peso1.getText());
-        DefaultMutableTreeNode sexo = null;
-        if (sexo_m1.isSelected()) {
-            sexo = new DefaultMutableTreeNode("Masculino");
-        } else {
-            if (sexo_f1.isSelected()) {
-                sexo = new DefaultMutableTreeNode("Femenino");
+        try {
+            ArrayList<String> dias = new ArrayList();
+            ArrayList<String> especialidades = new ArrayList();
+            String resp = JOptionPane.showInputDialog(this, "Desea agregar especialidades? [s/n]");
+            if (resp.equalsIgnoreCase("s")) {
+                String resp2;
+                do {
+                    especialidades.add(JOptionPane.showInputDialog(this, "Ingrese especialidad:"));
+                    resp2 = JOptionPane.showInputDialog(this, "Desea agregar otra especialidad? [s/n]");
+                } while (resp2.equalsIgnoreCase("s"));
             }
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nombre = new DefaultMutableTreeNode("Doctor " + tf_nombre1.getText());
+            DefaultMutableTreeNode edad = new DefaultMutableTreeNode("Edad: " + tf_edad1.getText());
+            DefaultMutableTreeNode id = new DefaultMutableTreeNode("ID: " + tf_id1.getText());
+            DefaultMutableTreeNode altura = new DefaultMutableTreeNode("Altura: " + tf_altura1.getText());
+            DefaultMutableTreeNode peso = new DefaultMutableTreeNode("Peso: " + tf_peso1.getText());
+            DefaultMutableTreeNode sexo = null;
+            String Sexo = "";
+            if (sexo_m1.isSelected()) {
+                sexo = new DefaultMutableTreeNode("Masculino");
+                Sexo = "Masculino";
+            } else {
+                if (sexo_f1.isSelected()) {
+                    sexo = new DefaultMutableTreeNode("Femenino");
+                    Sexo = "Femenino";
+                }
+            }
+            if (dia_l.isSelected()) {
+                dias.add("Lunes");
+            }
+            if (dia_ma.isSelected()) {
+                dias.add("Martes");
+            }
+            if (dia_mi.isSelected()) {
+                dias.add("Miercoles");
+            }
+            if (dia_ju.isSelected()) {
+                dias.add("Jueves");
+            }
+            if (dia_v.isSelected()) {
+                dias.add("Viernes");
+            }
+            if (dia_s.isSelected()) {
+                dias.add("Sabado");
+            }
+            if (dia_d.isSelected()) {
+                dias.add("Domingo");
+            }
+            DefaultMutableTreeNode Pacientes = new DefaultMutableTreeNode("Pacientes");
+            String resp3 = JOptionPane.showInputDialog(this, "Desea agregar paciente? [s/n]");
+            if (resp3.equalsIgnoreCase("s")) {
+                String resp4;
+                do {
+                    DefaultMutableTreeNode pac = new DefaultMutableTreeNode(((Persona) pacientes.get(Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la posicion del paciente:")))).getNombre());
+                    Pacientes.add(pac);
+                    resp4 = JOptionPane.showInputDialog(this, "Desea agregar otro paciente? [s/n]");
+                } while (resp4.equalsIgnoreCase("s"));
+            }
+            DefaultMutableTreeNode dia = new DefaultMutableTreeNode(dias);
+            DefaultMutableTreeNode especialidad = new DefaultMutableTreeNode(especialidades);
+            DefaultMutableTreeNode años = new DefaultMutableTreeNode("Años: " + tf_años.getText());
+            DefaultMutableTreeNode horario = new DefaultMutableTreeNode("Horario: " + tf_horario.getText());
+            nombre.add(edad);
+            nombre.add(id);
+            nombre.add(altura);
+            nombre.add(peso);
+            nombre.add(sexo);
+            nombre.add(años);
+            nombre.add(horario);
+            nombre.add(dia);
+            nombre.add(especialidad);
+            nombre.add(Pacientes);
+            raiz.add(nombre);
+            m.reload();
+            doctores.add(new Doctor(Integer.parseInt(tf_años.getText()), tf_horario.getText(), tf_nombre1.getText(), Integer.parseInt(tf_edad1.getText()), Integer.parseInt(tf_id.getText()), Double.parseDouble(tf_altura.getText()), Double.parseDouble(tf_peso.getText()), Sexo));
+            tf_años.setText("");
+            tf_horario.setText("");
+            tf_nombre1.setText("");
+            tf_edad1.setText("");
+            tf_id.setText("");
+            tf_altura.setText("");
+            tf_peso.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Datos Incorrectos!");
         }
-        if (dia_l.isSelected()) {
-            dias.add("Lunes");
-        }
-        if (dia_ma.isSelected()) {
-            dias.add("Martes");
-        }
-        if (dia_mi.isSelected()) {
-            dias.add("Miercoles");
-        }
-        if (dia_ju.isSelected()) {
-            dias.add("Jueves");
-        }
-        if (dia_v.isSelected()) {
-            dias.add("Viernes");
-        }
-        if (dia_s.isSelected()) {
-            dias.add("Sabado");
-        }
-        if (dia_d.isSelected()) {
-            dias.add("Domingo");
-        }
-        DefaultMutableTreeNode Pacientes = new DefaultMutableTreeNode("Pacientes");
-        String resp3 = JOptionPane.showInputDialog(this, "Desea agregar paciente? [s/n]");
-        if (resp3.equalsIgnoreCase("s")) {
-            String resp4;
-            do {
-                DefaultMutableTreeNode pac = new DefaultMutableTreeNode(((Persona) pacientes.get(Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese la posicion del paciente:")))).getNombre());
-                Pacientes.add(pac);
-                resp4 = JOptionPane.showInputDialog(this, "Desea agregar otro paciente? [s/n]");
-            } while (resp4.equalsIgnoreCase("s"));
-        }
-        DefaultMutableTreeNode dia = new DefaultMutableTreeNode(dias);
-        DefaultMutableTreeNode especialidad = new DefaultMutableTreeNode(especialidades);
-        DefaultMutableTreeNode años = new DefaultMutableTreeNode(tf_años.getText());
-        DefaultMutableTreeNode horario = new DefaultMutableTreeNode(tf_horario.getText());
-        nombre.add(edad);
-        nombre.add(id);
-        nombre.add(altura);
-        nombre.add(peso);
-        nombre.add(sexo);
-        nombre.add(años);
-        nombre.add(horario);
-        nombre.add(dia);
-        nombre.add(especialidad);
-        nombre.add(Pacientes);
-        raiz.add(nombre);
-        m.reload();
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog(this, "-> Reportes \n"
+                + "1. Doctores \n"
+                + "2. Pacientes \n"
+                + "3. Organos \n"
+                + "Ingrese el numero de su opcion:"));
+        switch (opcion) {
+            case 1:
+                if (!doctores.isEmpty()) {
+                    String doctor = "";
+                    for (int i = 0; i < doctores.size(); i++) {
+                        doctor += ((Doctor) doctores.get(i)).toString() + "\n";
+                    }
+                    JOptionPane.showMessageDialog(this, "Reporte Doctores: \n"
+                            + doctor);
+                } else {
+                    JOptionPane.showMessageDialog(this, "No hay doctores para crear el reporte!");
+                }
+                break;
+            case 2:
+                if (!pacientes.isEmpty()) {
+                    String paciente = "";
+                    for (int i = 0; i < pacientes.size(); i++) {
+                        paciente += ((Paciente) pacientes.get(i)).toString() + "\n";
+                    }
+                    JOptionPane.showMessageDialog(this, "Reporte Pacientes: \n"
+                            + paciente);
+                } else {
+                    JOptionPane.showMessageDialog(this, "No hay pacientes para crear el reporte!");
+                }
+                break;
+            case 3:
+                if (!organos.isEmpty()) {
+                    String organo = "";
+                    for (int i = 0; i < organos.size(); i++) {
+                        if (organos.get(i) instanceof Estomago) {
+                            organo += "(Estomago)" + ((Organo) organos.get(i)).toString() + "\n";
+                        } else {
+                            if (organos.get(i) instanceof Higado) {
+                                organo += "(Higado)" + ((Organo) organos.get(i)).toString() + "\n";
+                            } else {
+                                if (organos.get(i) instanceof Cerebro) {
+                                    organo += "(Cerebro)" + ((Organo) organos.get(i)).toString() + "\n";
+                                } else {
+                                    if (organos.get(i) instanceof Pancreas) {
+                                        organo += "(Pancreas)" + ((Organo) organos.get(i)).toString() + "\n";
+                                    } else {
+                                        if (organos.get(i) instanceof Pulmones) {
+                                            organo += "(Pulmones)" + ((Organo) organos.get(i)).toString() + "\n";
+                                        } else {
+                                            if (organos.get(i) instanceof Riñones) {
+                                                organo += "(Riñones)" + ((Organo) organos.get(i)).toString() + "\n";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    JOptionPane.showMessageDialog(this, "Reporte Organos: \n"
+                            + organo);
+                } else {
+                    JOptionPane.showMessageDialog(this, "No hay organos para crear el reporte!");
+                }
+                break;
+        }
+    }//GEN-LAST:event_jButton11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1259,16 +1356,24 @@ public class Principal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Principal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -1294,6 +1399,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup grupo_sexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
